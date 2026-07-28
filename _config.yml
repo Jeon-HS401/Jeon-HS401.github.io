@@ -1,0 +1,14 @@
+# 블로그 설정 — title·description은 CD가 확정
+title: "제목 미정"
+description: "개인 기록·만들기 로그 (자동 발행 파이프라인)"
+lang: ko-KR
+
+theme: minima
+
+plugins:
+  - jekyll-feed
+
+# 게시글 layout 기본값
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: "post" }
