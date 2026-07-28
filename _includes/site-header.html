@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-mark" aria-hidden="true">J/</span>
+      <span>{{ site.title }}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>기록</a>
+      <a href="{{ '/#projects' | relative_url }}">프로젝트</a>
+      <a href="{{ '/#about' | relative_url }}">소개</a>
+    </nav>
+
+    {% if site.header_status %}
+    <span class="header-note">
+      <span class="status-dot" aria-hidden="true"></span>
+      {{ site.header_status }}
+    </span>
+    {% endif %}
+  </div>
+</header>
