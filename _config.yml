@@ -1,12 +1,34 @@
-# 블로그 설정 — title·description은 CD가 확정
-title: "제목 미정"
-description: "개인 기록·만들기 로그 (자동 발행 파이프라인)"
+# 블로그 설정
+# title은 임시("작업실 기록") — 공개 전 CD 확정 (DESIGN.md §4)
+title: "작업실 기록"
+description: "기술 설명, 프로젝트의 선택과 실패, 다음 작업을 실제 코드와 실행 결과 가까이에 기록하는 개인 개발 블로그."
 lang: ko-KR
+author: "Jeon"
 
 theme: minima
-
 plugins:
   - jekyll-feed
+
+# 홈 히어로
+hero_eyebrow: "DEVELOPER WORKLOG · SEOUL"
+hero_title: "코드보다 판단이 먼저 보이는 기록."
+hero_lead: "기술을 설명하고, 프로젝트를 진행하며 바뀐 선택을 남깁니다. 실행 결과가 있으면 보여주고, 근거가 없으면 억지로 이야기를 만들지 않습니다."
+
+# 현재 작업(NOW 패널)
+now_title: "content-agent 드래프터 파이프라인"
+now_body: "활동에서 근거를 모아, 근거가 있는 초안만 블로그 PR로 보내는 개인 드래프터를 만들고 있습니다."
+now_next: "실제 글로 발행 흐름 검증"
+
+# 컨텍스트 레일
+current_project: "content-agent"
+current_project_note: "활동에서 근거를 모아 초안 PR을 만드는 개인 드래프터."
+topics: "automation<br>developer tools<br>writing systems<br>SQL"
+
+editorial_principle: "결과만 진열하지 않고, 무엇을 선택했고 어디에서 막혔는지를 근거 가까이에 둔다."
+
+header_status: "content-agent · designing"
+about_heading: "만든 것보다 만드는 동안 확인한 것을 오래 남깁니다."
+github_url: "https://github.com/Jeon-HS401"
 
 # 게시글 layout 기본값
 defaults:

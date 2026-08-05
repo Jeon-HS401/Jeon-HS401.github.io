@@ -1,0 +1,100 @@
+---
+layout: default
+---
+<div class="page-frame">
+  <section class="home-hero" aria-labelledby="home-title">
+    <div class="hero-copy">
+      <p class="eyebrow">{{ site.hero_eyebrow | default: 'DEVELOPER WORKLOG · SEOUL' }}</p>
+      <h1 id="home-title">{{ site.hero_title | default: '코드보다 판단이 먼저 보이는 기록.' }}</h1>
+      <p class="lead">{{ site.hero_lead | default: '기술을 설명하고, 프로젝트를 진행하며 바뀐 선택을 남깁니다. 실행 결과가 있으면 보여주고, 근거가 없으면 억지로 이야기를 만들지 않습니다.' }}</p>
+    </div>
+
+    {% if site.now_title %}
+    <aside class="now-panel" aria-label="현재 작업">
+      <p class="micro-label">NOW</p>
+      <h2>{{ site.now_title }}</h2>
+      <p>{{ site.now_body }}</p>
+      {% if site.now_next %}
+      <div class="next-line">
+        <p class="micro-label">NEXT</p>
+        <p>{{ site.now_next }}</p>
+      </div>
+      {% endif %}
+    </aside>
+    {% endif %}
+  </section>
+
+  <div class="home-layout">
+    <aside class="context-rail" aria-label="기록 문맥">
+      {% if site.current_project %}
+      <section class="context-group">
+        <p class="micro-label">CURRENT PROJECT</p>
+        <h2>{{ site.current_project }}</h2>
+        <p>{{ site.current_project_note }}</p>
+      </section>
+      {% endif %}
+
+      <section class="context-group">
+        <p class="micro-label">TOPICS</p>
+        <p>{{ site.topics | default: 'automation<br>developer tools<br>writing systems' }}</p>
+      </section>
+    </aside>
+
+    <div class="home-main">
+      <section aria-labelledby="recent-heading">
+        <div class="section-head">
+          <h2 id="recent-heading">최근 기록</h2>
+          <span></span>
+        </div>
+
+        <div class="post-list">
+          {% for post in site.posts %}
+          <article class="post-item">
+            <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%m.%d' }}</time>
+            <div>
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+              {% if post.description %}<p class="description">{{ post.description }}</p>{% endif %}
+              <p class="meta">
+                {%- assign bits = '' -%}
+                {%- if post.project %}{{ post.project }} · {% endif -%}
+                {%- if post.tags.size > 0 %}{{ post.tags | join: ' · ' }} · {% endif -%}
+                {{ post.content | number_of_words | divided_by: 300 | plus: 1 }}분
+              </p>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      {% if site.data.projects %}
+      <section id="projects" aria-labelledby="projects-heading">
+        <div class="section-head">
+          <h2 id="projects-heading">이어지는 프로젝트</h2>
+          <span></span>
+        </div>
+        <div class="project-list">
+          {% for project in site.data.projects %}
+          <a class="project-item" href="{{ project.url | default: '#' }}">
+            <span class="project-number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <span>
+              <h3>{{ project.name }}</h3>
+              <p>{{ project.note }}</p>
+            </span>
+            <span>{{ project.records }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if site.editorial_principle %}
+      <section class="principle-strip" aria-label="편집 원칙">
+        <blockquote>
+          “{{ site.editorial_principle }}”
+          <cite>EDITORIAL PRINCIPLE</cite>
+        </blockquote>
+      </section>
+      {% endif %}
+    </div>
+  </div>
+</div>

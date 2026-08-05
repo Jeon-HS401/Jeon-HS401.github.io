@@ -1,0 +1,89 @@
+---
+layout: default
+---
+{%- assign kind_label = 'NOTE' -%}
+{%- if page.kind == 'technical' -%}{%- assign kind_label = 'TECHNICAL NOTE' -%}{%- endif -%}
+{%- if page.kind == 'worklog' -%}{%- assign kind_label = 'WORKLOG' -%}{%- endif -%}
+{%- assign minutes = page.content | number_of_words | divided_by: 300 | plus: 1 -%}
+<article>
+  <header class="article-hero">
+    <div class="page-frame article-hero-grid">
+      <div class="article-kicker">
+        <p class="micro-label">{{ kind_label }}</p>
+        <p>{{ page.date | date: '%Y.%m.%d' }}</p>
+        <p>{{ minutes }}분</p>
+        {% if page.project %}<p>{{ page.project }}</p>{% endif %}
+      </div>
+
+      <div class="article-title-block">
+        {% if page.path_label %}<p class="path">{{ page.path_label }}</p>{% endif %}
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}<p class="article-deck">{{ page.description }}</p>{% endif %}
+      </div>
+
+      {% if page.summary_label %}
+      <div class="article-summary">
+        <p class="micro-label">{{ page.summary_label }}</p>
+        <p>{{ page.summary_body }}</p>
+      </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="page-frame article-body-grid">
+    <aside class="article-side" aria-label="글 정보">
+      {% if page.project %}
+      <section class="side-block">
+        <p class="micro-label">PROJECT</p>
+        <p>{{ page.project }}</p>
+      </section>
+      {% endif %}
+      {% if page.evidence %}
+      <section class="side-block">
+        <p class="micro-label">EVIDENCE</p>
+        {% for item in page.evidence %}<p>{{ item.ref }}</p>{% endfor %}
+      </section>
+      {% endif %}
+    </aside>
+
+    <div class="article-content">
+      {{ content }}
+
+      {% if page.evidence %}
+      <section class="evidence-section" aria-labelledby="post-evidence">
+        <h2 id="post-evidence">근거와 재현</h2>
+        <ul class="evidence-list">
+          {% for item in page.evidence %}
+          <li>{{ item.ref }}{% if item.note %}<br>{{ item.note }}{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      <nav class="next-posts" aria-label="이전 및 다음 글">
+        {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}">
+          <small>← 이전 기록</small>
+          <strong>{{ page.previous.title }}</strong>
+        </a>
+        {% else %}
+        <a href="{{ '/' | relative_url }}">
+          <small>← 목록</small>
+          <strong>최근 기록으로 돌아가기</strong>
+        </a>
+        {% endif %}
+        {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}">
+          <small>다음 기록 →</small>
+          <strong>{{ page.next.title }}</strong>
+        </a>
+        {% else %}
+        <a href="{{ '/' | relative_url }}">
+          <small>목록 →</small>
+          <strong>최근 기록으로 돌아가기</strong>
+        </a>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+</article>

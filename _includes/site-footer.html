@@ -1,0 +1,26 @@
+<footer class="site-footer" id="about">
+  <div class="footer-main">
+    <section>
+      <p class="micro-label">ABOUT THIS LOG</p>
+      <h2>{{ site.about_heading | default: "만든 것보다 만드는 동안 확인한 것을 오래 남깁니다." }}</h2>
+      <p>{{ site.description }}</p>
+    </section>
+
+    <nav class="footer-links" aria-label="블로그 탐색">
+      <strong>EXPLORE</strong>
+      <a href="{{ '/' | relative_url }}">최근 기록</a>
+      <a href="{{ '/#projects' | relative_url }}">프로젝트</a>
+    </nav>
+
+    <nav class="footer-links" aria-label="외부 링크">
+      <strong>FOLLOW</strong>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      {% if site.github_url %}<a href="{{ site.github_url }}">GitHub</a>{% endif %}
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© {{ site.time | date: '%Y' }} {{ site.author | default: 'Jeon' }} · Built from project evidence.</span>
+    <span>Last updated {{ site.time | date: '%Y.%m.%d' }}</span>
+  </div>
+</footer>
