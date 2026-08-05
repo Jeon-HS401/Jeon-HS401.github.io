@@ -13,9 +13,10 @@
     </g>
   </defs>
 
+  <text x="736" y="16" text-anchor="end" font-size="11" fill="#888">점선 = 마지막 눈금 칸</text>
+
   <!-- ===== 수리 전 ===== -->
   <text x="22" y="82" font-size="14" font-weight="bold" fill="#333">수리 전</text>
-  <text x="22" y="102" font-size="11" fill="#888">(점선 = 마지막 눈금 칸)</text>
 
   <g transform="translate(110,28)">
     <use href="#base"/>
@@ -36,7 +37,7 @@
 
   <g transform="translate(110,210)">
     <use href="#base"/>
-    <rect x="115" y="46" width="35" height="44" fill="#a8c8e0" stroke="#6d94b4" stroke-width="1"/>
+    <rect x="115" y="60" width="35" height="30" fill="#a8c8e0" stroke="#6d94b4" stroke-width="1"/>
     <text x="80" y="112" text-anchor="middle" font-size="12" fill="#555">값 있음 → 채움</text>
   </g>
   <g transform="translate(300,210)">
