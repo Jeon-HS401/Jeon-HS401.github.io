@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 400" font-family="sans-serif">
+  <defs>
+    <!-- 기본 차트: 눈금 축 + 스텝 밴드(마지막 칸 비움) + 마지막 칸 점선 표시 -->
+    <g id="base">
+      <line x1="10" y1="90" x2="150" y2="90" stroke="#999" stroke-width="1"/>
+      <line x1="10" y1="90" x2="10" y2="94" stroke="#999" stroke-width="1"/>
+      <line x1="45" y1="90" x2="45" y2="94" stroke="#999" stroke-width="1"/>
+      <line x1="80" y1="90" x2="80" y2="94" stroke="#999" stroke-width="1"/>
+      <line x1="115" y1="90" x2="115" y2="94" stroke="#999" stroke-width="1"/>
+      <line x1="150" y1="90" x2="150" y2="94" stroke="#999" stroke-width="1"/>
+      <path d="M10,90 L10,52 L45,52 L45,38 L80,38 L80,60 L115,60 L115,90 Z" fill="#a8c8e0" stroke="#6d94b4" stroke-width="1"/>
+      <rect x="115" y="24" width="35" height="66" fill="none" stroke="#c9885a" stroke-dasharray="4 3" stroke-width="1"/>
+    </g>
+  </defs>
+
+  <!-- ===== 수리 전 ===== -->
+  <text x="22" y="82" font-size="14" font-weight="bold" fill="#333">수리 전</text>
+  <text x="22" y="102" font-size="11" fill="#888">(점선 = 마지막 눈금 칸)</text>
+
+  <g transform="translate(110,28)">
+    <use href="#base"/>
+    <text x="80" y="112" text-anchor="middle" font-size="12" fill="#555">값 있음</text>
+  </g>
+  <g transform="translate(300,28)">
+    <use href="#base"/>
+    <text x="80" y="112" text-anchor="middle" font-size="12" fill="#555">값 0</text>
+  </g>
+  <g transform="translate(490,28)">
+    <use href="#base"/>
+    <text x="80" y="112" text-anchor="middle" font-size="12" fill="#555">미렌더</text>
+  </g>
+  <text x="425" y="166" text-anchor="middle" font-size="12" fill="#777">값 있음 · 0 · 미렌더 — 셋 다 같은 빈 칸으로 보인다</text>
+
+  <!-- ===== 수리 후 ===== -->
+  <text x="22" y="264" font-size="14" font-weight="bold" fill="#333">수리 후</text>
+
+  <g transform="translate(110,210)">
+    <use href="#base"/>
+    <rect x="115" y="46" width="35" height="44" fill="#a8c8e0" stroke="#6d94b4" stroke-width="1"/>
+    <text x="80" y="112" text-anchor="middle" font-size="12" fill="#555">값 있음 → 채움</text>
+  </g>
+  <g transform="translate(300,210)">
+    <use href="#base"/>
+    <path d="M132.5,80 L127,88 L138,88 Z" fill="#c9885a"/>
+    <text x="80" y="112" text-anchor="middle" font-size="12" fill="#555">값 0 → 표식</text>
+  </g>
+  <g transform="translate(490,210)">
+    <use href="#base"/>
+    <text x="80" y="112" text-anchor="middle" font-size="12" fill="#555">미렌더 → 빈 칸</text>
+  </g>
+  <text x="425" y="348" text-anchor="middle" font-size="12" fill="#777">채움 · 표식 · 빈 칸 — 세 상태가 화면에서 갈린다</text>
+</svg>
