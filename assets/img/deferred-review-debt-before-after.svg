@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 442" width="100%" role="img"
+     font-family="Pretendard, 'Noto Sans KR', -apple-system, 'Segoe UI', sans-serif">
+  <title>저장 경로 전/후 도식</title>
+
+  <defs>
+    <marker id="ar-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a5320"/>
+    </marker>
+    <marker id="ar-cool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#285f76"/>
+    </marker>
+    <marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#687179"/>
+    </marker>
+  </defs>
+
+  <!-- ==================== 배경 밴드 (가장 먼저) ==================== -->
+  <rect x="8" y="8" width="704" height="268" rx="10" fill="#f5f2ee"/>
+  <rect x="8" y="292" width="704" height="120" rx="10" fill="#edf5f1"/>
+
+  <!-- ==================== (전) 연결선 — 박스보다 먼저 ==================== -->
+  <!-- 체인 화살표: 카메라 → 추론 (실선, 원본 구간) -->
+  <line x1="138" y1="79" x2="157" y2="79" stroke="#687179" stroke-width="1.6" marker-end="url(#ar-gray)"/>
+  <!-- 추론 → 오버레이 그리기 → 재인코딩 → 저장 (점선, 사본 구간) -->
+  <line x1="279" y1="79" x2="298" y2="79" stroke="#8a5320" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#ar-warm)"/>
+  <line x1="420" y1="79" x2="439" y2="79" stroke="#8a5320" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#ar-warm)"/>
+  <line x1="561" y1="79" x2="580" y2="79" stroke="#8a5320" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#ar-warm)"/>
+
+  <!-- 되돌아오는 화살표: 도구 세 가지가 매단 공유 간선 → 저장본 -->
+  <path d="M120,196 H642 V110" fill="none" stroke="#8a5320" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#ar-warm)"/>
+  <line x1="120" y1="214" x2="120" y2="196" stroke="#8a5320" stroke-width="1.8" stroke-dasharray="5 3"/>
+  <line x1="360" y1="214" x2="360" y2="196" stroke="#8a5320" stroke-width="1.8" stroke-dasharray="5 3"/>
+  <line x1="600" y1="214" x2="600" y2="196" stroke="#8a5320" stroke-width="1.8" stroke-dasharray="5 3"/>
+  <circle cx="120" cy="196" r="3" fill="#8a5320"/>
+  <circle cx="360" cy="196" r="3" fill="#8a5320"/>
+  <circle cx="600" cy="196" r="3" fill="#8a5320"/>
+
+  <!-- ==================== (전) 박스 ==================== -->
+  <rect x="20"  y="56" width="116" height="46" rx="6" fill="#ffffff" stroke="#bcc4c9" stroke-width="1.4"/>
+  <rect x="161" y="56" width="116" height="46" rx="6" fill="#ffffff" stroke="#bcc4c9" stroke-width="1.4"/>
+  <rect x="302" y="56" width="116" height="46" rx="6" fill="#ffffff" stroke="#8a5320" stroke-width="1.4" stroke-dasharray="5 3"/>
+  <rect x="443" y="56" width="116" height="46" rx="6" fill="#ffffff" stroke="#8a5320" stroke-width="1.4" stroke-dasharray="5 3"/>
+  <!-- 저장본(사본) — 이중 테두리로 구분 -->
+  <rect x="584" y="52" width="116" height="54" rx="7" fill="#ffffff" stroke="#8a5320" stroke-width="2"/>
+  <rect x="589" y="57" width="106" height="44" rx="4" fill="none" stroke="#8a5320" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- 오프라인 도구 세 가지 -->
+  <rect x="20"  y="214" width="200" height="46" rx="6" fill="#ffffff" stroke="#8a5320" stroke-width="1.4"/>
+  <rect x="260" y="214" width="200" height="46" rx="6" fill="#ffffff" stroke="#8a5320" stroke-width="1.4"/>
+  <rect x="500" y="214" width="200" height="46" rx="6" fill="#ffffff" stroke="#8a5320" stroke-width="1.4"/>
+
+  <!-- ==================== (전) 텍스트 — 가장 나중 ==================== -->
+  <text x="20" y="38" font-size="15" font-weight="700" fill="#202428">(전) 저장 경로</text>
+
+  <text x="78"  y="84" text-anchor="middle" font-size="13" fill="#202428">카메라</text>
+  <text x="219" y="84" text-anchor="middle" font-size="13" fill="#202428">추론</text>
+  <text x="360" y="84" text-anchor="middle" font-size="13" fill="#202428">오버레이 그리기</text>
+  <text x="501" y="84" text-anchor="middle" font-size="13" fill="#202428">재인코딩</text>
+  <text x="642" y="76" text-anchor="middle" font-size="13" fill="#202428">저장</text>
+  <text x="642" y="94" text-anchor="middle" font-size="11" fill="#8a5320">사본</text>
+
+  <text x="630" y="142" text-anchor="end" font-size="13" fill="#8a5320">이 사본을 다시 추론해 측정</text>
+  <text x="20"  y="176" font-size="12" fill="#687179">오프라인 도구 세 가지 — 같은 저장본 하나를 입력으로 공유</text>
+
+  <text x="120" y="242" text-anchor="middle" font-size="13" fill="#202428">단계별 처리 시간 측정</text>
+  <text x="360" y="242" text-anchor="middle" font-size="13" fill="#202428">모델별 비교</text>
+  <text x="600" y="242" text-anchor="middle" font-size="13" fill="#202428">임계값 훑기</text>
+
+  <!-- ==================== (후) 연결선 ==================== -->
+  <line x1="222" y1="360" x2="241" y2="360" stroke="#285f76" stroke-width="1.6" marker-end="url(#ar-cool)"/>
+  <line x1="462" y1="360" x2="481" y2="360" stroke="#285f76" stroke-width="1.6" marker-end="url(#ar-cool)"/>
+
+  <!-- ==================== (후) 박스 ==================== -->
+  <rect x="20"  y="336" width="200" height="48" rx="6" fill="#ffffff" stroke="#bcc4c9" stroke-width="1.4"/>
+  <rect x="260" y="332" width="200" height="56" rx="7" fill="#ffffff" stroke="#285f76" stroke-width="2"/>
+  <rect x="265" y="337" width="190" height="46" rx="4" fill="none" stroke="#285f76" stroke-width="1"/>
+  <rect x="500" y="336" width="200" height="48" rx="6" fill="#ffffff" stroke="#285f76" stroke-width="1.4"/>
+
+  <!-- ==================== (후) 텍스트 ==================== -->
+  <text x="20" y="320" font-size="15" font-weight="700" fill="#202428">(후) 저장 경로</text>
+
+  <text x="120" y="365" text-anchor="middle" font-size="13" fill="#202428">카메라</text>
+  <text x="360" y="357" text-anchor="middle" font-size="13" fill="#202428">수신 원시 바이트 저장</text>
+  <text x="360" y="375" text-anchor="middle" font-size="11" fill="#285f76">원본</text>
+  <text x="600" y="365" text-anchor="middle" font-size="13" fill="#202428">이 원본을 추론해 측정</text>
+
+  <!-- ==================== 범례 ==================== -->
+  <line x1="404" y1="429" x2="434" y2="429" stroke="#8a5320" stroke-width="1.8" stroke-dasharray="5 3"/>
+  <text x="440" y="433" font-size="12" fill="#687179">사본 경로</text>
+  <line x1="524" y1="429" x2="554" y2="429" stroke="#285f76" stroke-width="1.8"/>
+  <text x="560" y="433" font-size="12" fill="#687179">원본 경로</text>
+</svg>
