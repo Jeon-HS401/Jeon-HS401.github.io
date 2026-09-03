@@ -1,9 +1,18 @@
-- name: content-agent
-  note: "최근 활동을 소재로 선별하고, 근거가 있는 초안만 블로그 PR로 보냅니다."
-  records: "4 records"
-  url: "#"
+# 프로젝트 목록 — 홈의 "이어지는 프로젝트" 모듈과 /projects/ 페이지가 함께 읽는다.
+#
+# key   : 글 front matter의 `project:` 값과 일치해야 한다. 글 수는 이 키로 자동 집계된다.
+#         (하드코딩 금지 — 2026-09-03 이전에는 "4 records" 같은 허수가 박혀 있었다.)
+# name  : 화면에 보이는 공개 이름.
+# note  : 한 문장 설명.
 
-- name: going-concern
+- key: javi
+  name: javi
+  note: "생활 운영(재고·장보기·식단·운동·집안일)을 능동적으로 챙기는 개인 에이전트. 상시 가동되는 소형 서버가 두뇌."
+
+- key: going-concern
+  name: going-concern
   note: "되돌리기 어려운 결정을 여러 관점에서 검토하는 개인 의사결정 시스템."
-  records: "7 records"
-  url: "#"
+
+- key: content-agent
+  name: content-agent
+  note: "최근 활동을 소재로 선별하고, 근거가 있는 초안만 이 블로그의 PR로 보내는 개인 드래프터."

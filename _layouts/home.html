@@ -74,13 +74,14 @@ layout: default
         </div>
         <div class="project-list">
           {% for project in site.data.projects %}
-          <a class="project-item" href="{{ project.url | default: '#' }}">
+          {%- assign entries = site.posts | where: "project", project.key -%}
+          <a class="project-item" href="{{ '/projects/' | relative_url }}#{{ project.key }}">
             <span class="project-number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
             <span>
               <h3>{{ project.name }}</h3>
               <p>{{ project.note }}</p>
             </span>
-            <span>{{ project.records }}</span>
+            <span>기록 {{ entries | size }}편</span>
           </a>
           {% endfor %}
         </div>

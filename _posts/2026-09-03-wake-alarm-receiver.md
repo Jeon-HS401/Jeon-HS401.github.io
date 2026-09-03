@@ -1,10 +1,10 @@
 ---
 layout: post
 kind: worklog
+project: javi
 title: "알람은 걸려 있었는데 받을 리시버가 없었다"
 description: "예약은 걸려 있고 시스템은 시각에 맞춰 쐈는데 알림은 0건이었다. 받을 컴포넌트가 앱에 선언돼 있지 않았다."
 date: 2026-09-03 09:00:00 +0900
-path_label: "notes / android / notification"
 summary_label: "STATUS"
 summary_body: "리시버 선언으로 발화 복구. Doze·제조사 최적화 아래 발화는 미판정."
 evidence:
