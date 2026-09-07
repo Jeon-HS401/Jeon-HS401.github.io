@@ -7,7 +7,6 @@ permalink: /projects/
 
 <!-- 글 수는 각 글 front matter의 `project:` 값으로 집계된다. 목록·설명은 _data/projects.yml. -->
 
-<div class="project-page-list">
 {% for project in site.data.projects %}
   {%- assign entries = site.posts | where: "project", project.key -%}
   <section class="project-entry" id="{{ project.key }}">
@@ -30,4 +29,3 @@ permalink: /projects/
     {% endif %}
   </section>
 {% endfor %}
-</div>
