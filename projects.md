@@ -1,5 +1,6 @@
 ---
 layout: page
+label: /PROJECTS
 title: 프로젝트
 description: "기록이 나오는 곳. 각 프로젝트에서 어떤 글이 나왔는지 모아 둡니다."
 permalink: /projects/
@@ -19,6 +20,7 @@ permalink: /projects/
     <ul class="project-posts">
       {%- for post in entries %}
       <li>
+        <span class="n">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
         <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </li>

@@ -1,52 +1,54 @@
 ---
 layout: default
 ---
-{% if site.intro %}<p class="stage-intro">{{ site.intro }}</p>{% endif %}
+<div class="cols">
+  <section aria-labelledby="recent-heading">
+    <p class="label label--rule" id="recent-heading"><span class="k">/RECENT</span> 최근 기록</p>
+    {% for post in site.posts %}
+    <a class="entry" href="{{ post.url | relative_url }}">
+      <span class="n">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+      <span>
+        <span class="t">{{ post.title }}</span>
+        <span class="m">{% if post.project %}{{ post.project }} · {% endif %}{{ post.date | date: '%Y.%m.%d' }}</span>
+      </span>
+    </a>
+    {% endfor %}
+  </section>
 
-<section class="sec" aria-labelledby="recent-heading">
-  <div class="sec-head">
-    <h2 id="recent-heading">최근 기록</h2>
-    <span>{{ site.posts | size }}</span>
-  </div>
+  {% if site.data.projects %}
+  <section aria-labelledby="projects-heading">
+    <p class="label label--rule" id="projects-heading"><span class="k">/PROJECTS</span> 이어지는 프로젝트</p>
+    {% for project in site.data.projects %}
+    {%- assign entries = site.posts | where: "project", project.key -%}
+    <a class="entry" href="{{ '/projects/' | relative_url }}#{{ project.key }}">
+      <span class="n">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+      <span>
+        <span class="t">{{ project.name }}</span>
+        <span class="note">{{ project.note }}</span>
+        <span class="m ko">기록 {{ entries | size }}편</span>
+      </span>
+    </a>
+    {% endfor %}
+  </section>
+  {% endif %}
 
-  {% for post in site.posts %}
-  <article class="post-item">
-    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
-    <div>
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      {% if post.description %}<p class="description">{{ post.description }}</p>{% endif %}
-      <p class="meta">
-        {%- if post.project %}{{ post.project }} · {% endif -%}
-        {{ post.content | number_of_words | divided_by: 300 | plus: 1 }}분
-      </p>
+  {% if site.now_title %}
+  <section class="col-wide" aria-labelledby="now-heading">
+    <p class="label label--rule" id="now-heading"><span class="k">/NOW</span> 지금 하는 것</p>
+    <div class="slab">
+      <h3>{{ site.now_title }}</h3>
+      <p>{{ site.now_body }}</p>
+      {% if site.now_next %}
+      <div class="next"><p class="micro-label">NEXT</p><p>{{ site.now_next }}</p></div>
+      {% endif %}
     </div>
-  </article>
-  {% endfor %}
-</section>
+  </section>
+  {% endif %}
 
-{% if site.data.projects %}
-<section class="sec" id="projects" aria-labelledby="projects-heading">
-  <div class="sec-head">
-    <h2 id="projects-heading">이어지는 프로젝트</h2>
-    <span>{{ site.data.projects | size }}</span>
+  {% if site.editorial_principle %}
+  <div class="principle col-wide">
+    <blockquote>“{{ site.editorial_principle }}”</blockquote>
+    <cite>EDITORIAL PRINCIPLE</cite>
   </div>
-
-  {% for project in site.data.projects %}
-  {%- assign entries = site.posts | where: "project", project.key -%}
-  <a class="project-item" href="{{ '/projects/' | relative_url }}#{{ project.key }}">
-    <span>
-      <h3>{{ project.name }}</h3>
-      <p>{{ project.note }}</p>
-    </span>
-    <span class="count">기록 {{ entries | size }}편</span>
-  </a>
-  {% endfor %}
-</section>
-{% endif %}
-
-{% if site.editorial_principle %}
-<div class="principle-strip">
-  <blockquote>“{{ site.editorial_principle }}”</blockquote>
-  <cite>EDITORIAL PRINCIPLE</cite>
+  {% endif %}
 </div>
-{% endif %}

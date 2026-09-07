@@ -17,7 +17,9 @@
     <p class="micro-label">NOW</p>
     <h2>{{ site.now_title }}</h2>
     <p>{{ site.now_body }}</p>
-    {% if site.now_next %}<p class="rail-next"><span class="micro-label">NEXT</span>{{ site.now_next }}</p>{% endif %}
+    {% if site.now_next %}
+    <p class="rail-next"><span class="micro-label">NEXT</span>{{ site.now_next }}</p>
+    {% endif %}
   </section>
   {% endif %}
 
@@ -27,4 +29,12 @@
     <p>{{ site.topics }}</p>
   </section>
   {% endif %}
+
+  <section class="rail-block" aria-label="바깥 링크">
+    <p class="micro-label">LINKS</p>
+    <div class="rail-links">
+      {% if site.github_url %}<a href="{{ site.github_url }}">GitHub</a>{% endif %}
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </div>
+  </section>
 </aside>

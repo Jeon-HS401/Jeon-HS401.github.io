@@ -1,12 +1,12 @@
 ---
 layout: default
 ---
-{%- assign kind_label = 'NOTE' -%}
-{%- if page.kind == 'technical' -%}{%- assign kind_label = 'TECHNICAL NOTE' -%}{%- endif -%}
-{%- if page.kind == 'worklog' -%}{%- assign kind_label = 'WORKLOG' -%}{%- endif -%}
+{%- assign kind_label = '/NOTE' -%}
+{%- if page.kind == 'technical' -%}{%- assign kind_label = '/TECHNICAL' -%}{%- endif -%}
+{%- if page.kind == 'worklog' -%}{%- assign kind_label = '/WORKLOG' -%}{%- endif -%}
 <article>
   <p class="post-kicker">
-    <span>{{ kind_label }}</span>
+    <span class="k">{{ kind_label }}</span>
     <span>{{ page.date | date: '%Y.%m.%d' }}</span>
     {% if page.project %}<span>{{ page.project }}</span>{% endif %}
     <span>{{ page.content | number_of_words | divided_by: 300 | plus: 1 }}분</span>
@@ -17,8 +17,10 @@ layout: default
 
   {% if page.summary_label %}
   <aside class="article-summary" aria-label="{{ page.summary_label }}">
-    <p class="micro-label">{{ page.summary_label }}</p>
-    <p>{{ page.summary_body }}</p>
+    <div class="slab">
+      <p class="micro-label">{{ page.summary_label }}</p>
+      <p>{{ page.summary_body }}</p>
+    </div>
   </aside>
   {% endif %}
 
@@ -26,27 +28,28 @@ layout: default
     {{ content }}
   </div>
 
-  {% if page.evidence %}
-  <section class="evidence-section" aria-labelledby="post-evidence">
-    <h2 id="post-evidence">근거와 재현</h2>
+  <div class="post-tail">
+    {% if page.evidence %}
+    <p class="label label--rule"><span class="k">/EVIDENCE</span> 근거와 재현</p>
     <ul class="evidence-list">
       {% for item in page.evidence %}
       <li><b>{{ item.ref }}</b>{{ item.note }}</li>
       {% endfor %}
     </ul>
-  </section>
-  {% endif %}
+    {% endif %}
 
-  <nav class="next-posts" aria-label="이전 및 다음 글">
-    {% if page.previous %}
-    <a href="{{ page.previous.url | relative_url }}"><small>← 이전 기록</small><strong>{{ page.previous.title }}</strong></a>
-    {% else %}
-    <a href="{{ '/' | relative_url }}"><small>← 목록</small><strong>최근 기록으로 돌아가기</strong></a>
-    {% endif %}
-    {% if page.next %}
-    <a href="{{ page.next.url | relative_url }}"><small>다음 기록 →</small><strong>{{ page.next.title }}</strong></a>
-    {% else %}
-    <a href="{{ '/' | relative_url }}"><small>목록 →</small><strong>최근 기록으로 돌아가기</strong></a>
-    {% endif %}
-  </nav>
+    <p class="label label--rule"><span class="k">/MORE</span> 다른 기록</p>
+    <nav class="next-posts" aria-label="이전 및 다음 글">
+      {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}"><small>← 이전 기록</small><strong>{{ page.previous.title }}</strong></a>
+      {% else %}
+      <a href="{{ '/' | relative_url }}"><small>← 목록</small><strong>최근 기록으로 돌아가기</strong></a>
+      {% endif %}
+      {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}"><small>다음 기록 →</small><strong>{{ page.next.title }}</strong></a>
+      {% else %}
+      <a href="{{ '/' | relative_url }}"><small>목록 →</small><strong>최근 기록으로 돌아가기</strong></a>
+      {% endif %}
+    </nav>
+  </div>
 </article>

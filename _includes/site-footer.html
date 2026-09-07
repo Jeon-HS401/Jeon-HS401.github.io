@@ -1,7 +1,3 @@
 <footer class="site-footer">
-  <span>© {{ site.time | date: '%Y' }} {{ site.author | default: 'Jeon' }} · Built from project evidence.</span>
-  <nav aria-label="외부 링크">
-    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-    {% if site.github_url %}<a href="{{ site.github_url }}">GitHub</a>{% endif %}
-  </nav>
+  © {{ site.time | date: '%Y' }} {{ site.author | default: 'Jeon' }} · Built from project evidence.
 </footer>
