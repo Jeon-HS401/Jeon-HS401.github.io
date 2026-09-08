@@ -7,7 +7,7 @@ layout: default
 {%- assign minutes = page.content | number_of_words | divided_by: 300 | plus: 1 -%}
 <article>
   <header class="article-hero">
-    <div class="page-frame article-hero-grid">
+    <div class="page-frame article-hero-grid{% unless page.summary_label %} is-two-col{% endunless %}">
       <div class="article-kicker">
         <p class="micro-label">{{ kind_label }}</p>
         <p>{{ page.date | date: '%Y.%m.%d' }}</p>
@@ -30,18 +30,12 @@ layout: default
     </div>
   </header>
 
-  <div class="page-frame article-body-grid">
+  <div class="page-frame article-body-grid is-two-col">
     <aside class="article-side" aria-label="글 정보">
       {% if page.project %}
       <section class="side-block">
         <p class="micro-label">PROJECT</p>
         <p>{{ page.project }}</p>
-      </section>
-      {% endif %}
-      {% if page.evidence %}
-      <section class="side-block">
-        <p class="micro-label">EVIDENCE</p>
-        {% for item in page.evidence %}<p>{{ item.ref }}</p>{% endfor %}
       </section>
       {% endif %}
     </aside>

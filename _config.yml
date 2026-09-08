@@ -30,6 +30,21 @@ header_status: "content-agent · designing"
 about_heading: "만든 것보다 만드는 동안 확인한 것을 오래 남깁니다."
 github_url: "https://github.com/Jeon-HS401"
 
+# 사이트에 싣지 않을 저장소 문서.
+# Jekyll은 front matter 없는 파일을 정적 파일로 그대로 복사한다 — 2026-09-03 확인 시점에
+# https://jeon-hs401.github.io/CLAUDE.md 와 /README.md 가 HTTP 200으로 열려 있었다.
+#
+# ★ 주의 — 이건 정리이지 차단이 아니다.
+#   이 저장소는 PUBLIC이라 exclude해도 raw.githubusercontent.com으로 파일이 그대로 읽힌다.
+#   공개되면 곤란한 내용은 애초에 이 저장소에 두지 않는다(CLAUDE.md 첫 줄).
+exclude:
+  - CLAUDE.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
 # 게시글 layout 기본값
 defaults:
   - scope: { path: "", type: "posts" }

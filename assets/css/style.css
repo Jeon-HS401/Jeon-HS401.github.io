@@ -179,6 +179,11 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
 .article-hero-grid, .article-body-grid {
   display: grid; grid-template-columns: 170px minmax(0, var(--reading)) 180px; gap: 54px;
 }
+/* 오른쪽 보조 열은 채울 내용이 있을 때만 만든다.
+   본문 그리드는 자식이 둘뿐이라 언제나 2열이고, 글 머리는 summary_label이 있을 때만 3열. */
+.article-hero-grid.is-two-col, .article-body-grid.is-two-col {
+  grid-template-columns: 170px minmax(0, var(--reading));
+}
 .article-kicker { padding-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.65; }
 .article-kicker p { margin: 0 0 8px; }
 .article-title-block h1 { margin: 14px 0 22px; font-size: clamp(40px, 4.4vw, 58px); font-weight: 620; line-height: 1.22; letter-spacing: -0.05em; }
@@ -265,6 +270,27 @@ p code, li code { padding: 0.12em 0.34em; border: 1px solid var(--line); backgro
   border-top: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 11px;
 }
 
+.page-body { padding: 72px 0 104px; }
+.page-head { max-width: var(--reading); margin: 0 0 56px; }
+.page-head h1 { margin: 0 0 20px; font-size: clamp(34px, 3.6vw, 46px); font-weight: 620; line-height: 1.25; letter-spacing: -0.04em; }
+.page-head .lead { margin: 0; max-width: 640px; color: var(--muted); font-size: 19px; line-height: 1.72; }
+.page-body h2 { margin: 52px 0 14px; font-size: 24px; font-weight: 620; line-height: 1.45; letter-spacing: -0.025em; }
+.page-body p { max-width: var(--reading); margin: 0 0 16px; }
+.page-body ul { max-width: var(--reading); padding-left: 20px; }
+
+.project-page-list { display: grid; }
+.project-entry { padding: 34px 0; border-top: 1px solid var(--line-strong); scroll-margin-top: calc(var(--header-height) + 24px); }
+.project-entry:last-child { border-bottom: 1px solid var(--line-strong); }
+.project-entry-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+.project-entry-head h2 { margin: 0; font-size: 26px; font-weight: 620; letter-spacing: -0.03em; }
+.project-count { color: var(--quiet); font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+.project-note { max-width: 640px; margin: 12px 0 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.project-posts { margin: 22px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.project-posts li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 20px; align-items: baseline; }
+.project-posts time { color: var(--quiet); font-family: var(--mono); font-size: 12px; }
+.project-posts a { font-size: 17px; line-height: 1.55; text-decoration: none; }
+.project-empty { margin: 18px 0 0; color: var(--quiet); font-size: 15px; }
+
 @media (max-width: 1080px) {
   .header-note { display: none; }
   .home-hero { grid-template-columns: minmax(0, 1fr) 260px; gap: 48px; }
@@ -322,6 +348,8 @@ p code, li code { padding: 0.12em 0.34em; border: 1px solid var(--line); backgro
   .article-content h2 { margin-top: 52px; font-size: 27px; }
   pre { padding: 18px; font-size: 13px; }
   .evidence-list, .next-posts { grid-template-columns: 1fr; }
+  .project-posts li { grid-template-columns: 1fr; gap: 4px; }
+  .project-entry-head { flex-direction: column; gap: 8px; }
   .next-posts a + a { padding-left: 0; border-top: 1px solid var(--line); border-left: 0; }
   .footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; padding: 34px 0 30px; }
   .footer-main > section { grid-column: 1 / -1; }
