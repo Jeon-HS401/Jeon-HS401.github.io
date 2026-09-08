@@ -1,5 +1,6 @@
 ---
 layout: page
+label: /ABOUT
 title: 소개
 description: "만든 것보다 만드는 동안 확인한 것을 오래 남깁니다."
 permalink: /about/
