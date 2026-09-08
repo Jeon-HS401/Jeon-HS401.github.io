@@ -9,26 +9,30 @@ theme: minima
 plugins:
   - jekyll-feed
 
-# 홈 히어로
-hero_eyebrow: "DEVELOPER WORKLOG · SEOUL"
-hero_title: "코드보다 판단이 먼저 보이는 기록."
-hero_lead: "기술을 설명하고, 프로젝트를 진행하며 바뀐 선택을 남깁니다. 실행 결과가 있으면 보여주고, 근거가 없으면 억지로 이야기를 만들지 않습니다."
+# 왼쪽 사이트 레일
+tagline: "코드보다 판단이 먼저 보이는 기록."
 
-# 현재 작업(NOW 패널)
+# 무대 첫 줄
+intro: "기술을 설명하고, 프로젝트를 진행하며 바뀐 선택을 남깁니다. 실행 결과가 있으면 보여주고, 근거가 없으면 억지로 이야기를 만들지 않습니다."
+
+# 레일 NOW 블록
 now_title: "content-agent 드래프터 파이프라인"
 now_body: "활동에서 근거를 모아, 근거가 있는 초안만 블로그 PR로 보내는 개인 드래프터를 만들고 있습니다."
 now_next: "실제 글로 발행 흐름 검증"
 
-# 컨텍스트 레일
-current_project: "content-agent"
-current_project_note: "활동에서 근거를 모아 초안 PR을 만드는 개인 드래프터."
-topics: "automation<br>developer tools<br>writing systems<br>SQL"
+# 레일 TOPICS 블록
+topics: "automation · developer tools<br>writing systems · SQL"
 
 editorial_principle: "결과만 진열하지 않고, 무엇을 선택했고 어디에서 막혔는지를 근거 가까이에 둔다."
-
-header_status: "content-agent · designing"
-about_heading: "만든 것보다 만드는 동안 확인한 것을 오래 남깁니다."
 github_url: "https://github.com/Jeon-HS401"
+
+# 2026-09-03 권장안 A 전환으로 쓰이지 않게 된 키 (문구는 위로 옮겼다):
+#   hero_eyebrow "DEVELOPER WORKLOG · SEOUL" — 히어로가 없어졌다
+#   hero_title   → tagline
+#   hero_lead    → intro
+#   header_status "content-agent · designing" — 상태 배지 제거(DESIGN §7)
+#   current_project / current_project_note — 레일 NOW와 중복
+#   about_heading — /about/ 페이지가 자기 문구를 갖는다
 
 # 사이트에 싣지 않을 저장소 문서.
 # Jekyll은 front matter 없는 파일을 정적 파일로 그대로 복사한다 — 2026-09-03 확인 시점에
